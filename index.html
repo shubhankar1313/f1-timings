@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F1 Grand Prix Schedule (IST)</title>
+  <title>F1 Grand Prix Schedule</title>
 </head>
 <body>
   <div class="theme-toggle">
     <button class="toggle-button" onclick="toggleTheme()">Toggle Dark/Light Theme</button>
   </div>
-  <h1>F1 Grand Prix Schedule (IST)</h1>
+  <h1>F1 Grand Prix Schedule</h1>
   <div id="current-race"></div>
   <h2>Upcoming Races</h2>
   <div id="upcoming-races"></div>
@@ -21,7 +21,25 @@
 
     function convertToIST(utcTime) {
       const date = new Date(utcTime);
-      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      const options = { timeZone: 'Asia/Kolkata' };
+  
+      const day = date.toLocaleString('en-IN', { ...options, day: 'numeric' });
+      const month = date.toLocaleString('en-IN', { ...options, month: 'long' });
+      const year = date.toLocaleString('en-IN', { ...options, year: 'numeric' });
+      const time = date.toLocaleString('en-IN', { ...options, hour: 'numeric', minute: '2-digit', hour12: true });
+  
+      const dayWithSuffix = addOrdinalSuffix(parseInt(day));
+      return `${dayWithSuffix} ${month}, ${year} ${time}`;
+    }
+
+    function addOrdinalSuffix(day) {
+      if (day > 3 && day < 21) return day + 'th';
+      switch (day % 10) {
+        case 1: return day + 'st';
+        case 2: return day + 'nd';
+        case 3: return day + 'rd';
+        default: return day + 'th';
+      }
     }
 
     function createRaceCard(race, isCurrent = false) {
