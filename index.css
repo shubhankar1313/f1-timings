@@ -58,3 +58,22 @@ h1 {
   font-size: 40px;
   margin: 0;
 }
+
+.top-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* space between button and selector */
+  flex-wrap: wrap; /* responsive on smaller screens */
+  margin: 1rem 0;
+}
+
+.theme-toggle button,
+.timezone-select select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+label {
+  margin-right: 0.5rem;
+}
