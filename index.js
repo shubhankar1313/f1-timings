@@ -50,30 +50,48 @@ function createRaceCard(race, isCurrent = false) {
 }
 
 fetch('https://api.jolpi.ca/ergast/f1/current.json')
-    .then(response => response.json())
-    .then(data => {
+  .then(response => response.json())
+  .then(data => {
     const races = data.MRData.RaceTable.Races;
     const now = new Date();
     let currentRace = null;
     const upcoming = [];
 
     for (let race of races) {
-        const raceDate = new Date(race.date + 'T' + race.time);
-        if (!currentRace && raceDate > now) {
+      const raceDate = new Date(race.date + 'T' + race.time);
+      if (!currentRace && raceDate > now) {
         currentRace = race;
-        } else if (raceDate > now) {
+      } else if (raceDate > now) {
         upcoming.push(race);
-        }
+      }
     }
 
+    // Display the current race
     if (currentRace) {
-        document.getElementById('current-race').innerHTML = createRaceCard(currentRace, true);
+      document.getElementById('current-race').innerHTML = createRaceCard(currentRace, true);
     }
 
-    const upcomingHTML = upcoming.map(r => createRaceCard(r)).join('');
-    document.getElementById('upcoming-races').innerHTML = upcomingHTML;
-    })
-    .catch(err => {
+    // Initial: show only first 4
+    const firstFew = upcoming.slice(0, 4);
+    const remaining = upcoming.slice(4);
+
+    const upcomingContainer = document.getElementById('upcoming-races');
+    upcomingContainer.innerHTML = firstFew.map(r => createRaceCard(r)).join('');
+
+    const showMoreBtn = document.getElementById('show-more-btn');
+
+    // Only show the button if there's more to show
+    if (remaining.length > 0) {
+      showMoreBtn.style.display = 'block';
+      showMoreBtn.onclick = () => {
+        upcomingContainer.innerHTML += remaining.map(r => createRaceCard(r)).join('');
+        showMoreBtn.style.display = 'none'; // Hide the button after showing more
+      };
+    } else {
+      showMoreBtn.style.display = 'none'; // No races to show
+    }
+  })
+  .catch(err => {
     document.getElementById('current-race').innerHTML = '<p>Error loading schedule.</p>';
     console.error(err);
-    });
+  });
