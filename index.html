@@ -8,21 +8,21 @@
   <title>F1 Grand Prix Schedule</title>
 </head>
 <body>
-  <div class="theme-toggle">
-    <button class="toggle-button" onclick="toggleTheme()">Toggle Theme</button>
-  </div>
-  
-  <br>
+  <div class="top-controls">
+    <div class="theme-toggle">
+      <button class="toggle-button" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
 
-  <div class="timezone-select">
-    <label for="timezone">Timezone </label>
-    <select id="timezone" onchange="updateTimezone()">
-      <option value="Asia/Kolkata">IST (India)</option>
-      <option value="UTC">UTC</option>
-      <option value="America/New_York">EST (New York)</option>
-      <option value="America/Los_Angeles">PST (Los Angeles)</option>
-      <option value="Europe/London">BST (London)</option>
-    </select>
+    <div class="timezone-select">
+      <label for="timezone">Timezone</label>
+      <select id="timezone" onchange="updateTimezone()">
+        <option value="Asia/Kolkata">IST (India)</option>
+        <option value="UTC">UTC</option>
+        <option value="America/New_York">EST (New York)</option>
+        <option value="America/Los_Angeles">PST (Los Angeles)</option>
+        <option value="Europe/London">BST (London)</option>
+      </select>
+    </div>
   </div>
 
   <br>
