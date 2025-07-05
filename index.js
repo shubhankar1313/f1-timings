@@ -65,7 +65,7 @@ function updateTimezone() {
 let currentRace = null;
 let upcoming = [];
 let shownCount = 0;
-const batchSize = 4;
+const batchSize = 3;
 
 fetch('https://api.jolpi.ca/ergast/f1/current.json')
   .then(response => response.json())
