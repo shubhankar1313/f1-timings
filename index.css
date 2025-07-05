@@ -11,7 +11,7 @@
     --accent-color: #d32f2f;
 }
 
-#page-title {
+#page-title, #race {
   color: rgba(255,24,0,255);
 }
 
