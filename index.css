@@ -11,10 +11,15 @@
     --accent-color: #d32f2f;
 }
 
+#page-title {
+  color: rgba(255,24,0,255);
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', 'sans-serif';
 }
 
 .race-card {
@@ -36,7 +41,7 @@ select {
 }
 
 button {
-  background-color: var(--accent-color);
+  background-color: rgb(255,24,0,255);
 }
 
 select {
@@ -45,4 +50,11 @@ select {
 
 button:hover, select:hover {
   opacity: 0.9;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0;
 }
