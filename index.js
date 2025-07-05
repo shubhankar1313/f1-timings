@@ -2,9 +2,11 @@ function toggleTheme() {
     document.body.classList.toggle('light-theme');
 }
 
-function convertToIST(utcTime) {
+let selectedTimezone = 'Asia/Kolkata'; // Default to IST
+
+function convertToTimezone(utcTime, tz = selectedTimezone) {
     const date = new Date(utcTime);
-    const options = { timeZone: 'Asia/Kolkata' };
+    const options = { timeZone: tz };
 
     const day = date.toLocaleString('en-IN', { ...options, day: 'numeric' });
     const month = date.toLocaleString('en-IN', { ...options, month: 'long' });
@@ -14,6 +16,7 @@ function convertToIST(utcTime) {
     const dayWithSuffix = addOrdinalSuffix(parseInt(day));
     return `${dayWithSuffix} ${month}, ${year} ${time}`;
 }
+
 
 function addOrdinalSuffix(day) {
     if (day > 3 && day < 21) return day + 'th';
@@ -28,34 +31,49 @@ function addOrdinalSuffix(day) {
 function createRaceCard(race, isCurrent = false) {
     let html = `<div class="race-card">
                 <h2>${race.raceName} (${race.Circuit.Location.locality}, ${race.Circuit.Location.country})</h2>
-                <p><strong>Date:</strong> ${convertToIST(race.date + 'T' + race.time)}</p>`;
+                <p><strong>Date:</strong> ${convertToTimezone(race.date + 'T' + race.time)}</p>`;
 
     if (race.FirstPractice) {
-    html += `<p class="session">FP1: ${convertToIST(race.FirstPractice.date + 'T' + race.FirstPractice.time)}</p>`;
+        html += `<p class="session">FP1: ${convertToTimezone(race.FirstPractice.date + 'T' + race.FirstPractice.time)}</p>`;
     }
     if (race.SecondPractice) {
-    html += `<p class="session">FP2: ${convertToIST(race.SecondPractice.date + 'T' + race.SecondPractice.time)}</p>`;
+        html += `<p class="session">FP2: ${convertToTimezone(race.SecondPractice.date + 'T' + race.SecondPractice.time)}</p>`;
     }
     if (race.ThirdPractice) {
-    html += `<p class="session">FP3: ${convertToIST(race.ThirdPractice.date + 'T' + race.ThirdPractice.time)}</p>`;
+        html += `<p class="session">FP3: ${convertToTimezone(race.ThirdPractice.date + 'T' + race.ThirdPractice.time)}</p>`;
     }
     if (race.Sprint) {
-    html += `<p class="session">Sprint: ${convertToIST(race.Sprint.date + 'T' + race.Sprint.time)}</p>`;
+        html += `<p class="session">Sprint: ${convertToTimezone(race.Sprint.date + 'T' + race.Sprint.time)}</p>`;
     }
     if (race.Qualifying) {
-    html += `<p class="session">Qualifying: ${convertToIST(race.Qualifying.date + 'T' + race.Qualifying.time)}</p>`;
+        html += `<p class="session">Qualifying: ${convertToTimezone(race.Qualifying.date + 'T' + race.Qualifying.time)}</p>`;
     }
     html += `</div>`;
     return html;
 }
+
+function updateTimezone() {
+    selectedTimezone = document.getElementById('timezone').value;
+
+    // Re-render all races
+    document.getElementById('current-race').innerHTML = currentRace ? createRaceCard(currentRace, true) : '';
+    document.getElementById('upcoming-races').innerHTML = upcoming
+      .slice(0, shownCount)
+      .map(r => createRaceCard(r)).join('');
+}
+
+let currentRace = null;
+let upcoming = [];
+let shownCount = 0;
+const batchSize = 4;
 
 fetch('https://api.jolpi.ca/ergast/f1/current.json')
   .then(response => response.json())
   .then(data => {
     const races = data.MRData.RaceTable.Races;
     const now = new Date();
-    let currentRace = null;
-    const upcoming = [];
+    // let currentRace = null;
+    // const upcoming = [];
 
     for (let race of races) {
       const raceDate = new Date(race.date + 'T' + race.time);
@@ -74,8 +92,8 @@ fetch('https://api.jolpi.ca/ergast/f1/current.json')
     // Progressive display setup
     const upcomingContainer = document.getElementById('upcoming-races');
     const showMoreBtn = document.getElementById('show-more-btn');
-    let shownCount = 0;
-    const batchSize = 4;
+    // let shownCount = 0;
+    // const batchSize = 4;
 
     const renderNextBatch = () => {
       const nextBatch = upcoming.slice(shownCount, shownCount + batchSize);
