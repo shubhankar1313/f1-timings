@@ -60,6 +60,10 @@ button:hover, select:hover {
   opacity: 0.9;
 }
 
+.toggle-button, #show-more-btn {
+  font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
