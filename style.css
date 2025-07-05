@@ -81,7 +81,8 @@ h1 {
 }
 
 .theme-toggle button,
-.timezone-select select {
+.timezone-select select,
+#show-more-btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
