@@ -31,7 +31,7 @@ function addOrdinalSuffix(day) {
 function createRaceCard(race, isCurrent = false) {
     let html = `<div class="race-card">
                 <h2>${race.raceName} (${race.Circuit.Location.locality}, ${race.Circuit.Location.country})</h2>
-                <p><strong>Date:</strong> ${convertToTimezone(race.date + 'T' + race.time)}</p>`;
+                <p id="race"><strong>Race: ${convertToTimezone(race.date + 'T' + race.time)}</strong></p>`;
 
     if (race.FirstPractice) {
         html += `<p class="session">FP1: ${convertToTimezone(race.FirstPractice.date + 'T' + race.FirstPractice.time)}</p>`;
@@ -43,7 +43,7 @@ function createRaceCard(race, isCurrent = false) {
         html += `<p class="session">FP3: ${convertToTimezone(race.ThirdPractice.date + 'T' + race.ThirdPractice.time)}</p>`;
     }
     if (race.Sprint) {
-        html += `<p class="session">Sprint: ${convertToTimezone(race.Sprint.date + 'T' + race.Sprint.time)}</p>`;
+        html += `<p class="session"><strong>Sprint: ${convertToTimezone(race.Sprint.date + 'T' + race.Sprint.time)}</strong></p>`;
     }
     if (race.Qualifying) {
         html += `<p class="session">Qualifying: ${convertToTimezone(race.Qualifying.date + 'T' + race.Qualifying.time)}</p>`;
