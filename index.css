@@ -1,0 +1,48 @@
+:root {
+    --bg-color: #0c0c0c;
+    --text-color: #ffffff;
+    --card-bg: #1a1a1a;
+    --accent-color: #f92c2c;
+}
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f4f4f4;
+    --accent-color: #d32f2f;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.race-card {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button,
+select {
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+button {
+  background-color: var(--accent-color);
+}
+
+select {
+  background-color: var(--card-bg);
+}
+
+button:hover, select:hover {
+  opacity: 0.9;
+}
