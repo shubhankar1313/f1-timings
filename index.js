@@ -71,24 +71,30 @@ fetch('https://api.jolpi.ca/ergast/f1/current.json')
       document.getElementById('current-race').innerHTML = createRaceCard(currentRace, true);
     }
 
-    // Initial: show only first 4
-    const firstFew = upcoming.slice(0, 4);
-    const remaining = upcoming.slice(4);
-
+    // Progressive display setup
     const upcomingContainer = document.getElementById('upcoming-races');
-    upcomingContainer.innerHTML = firstFew.map(r => createRaceCard(r)).join('');
-
     const showMoreBtn = document.getElementById('show-more-btn');
+    let shownCount = 0;
+    const batchSize = 4;
 
-    // Only show the button if there's more to show
-    if (remaining.length > 0) {
+    const renderNextBatch = () => {
+      const nextBatch = upcoming.slice(shownCount, shownCount + batchSize);
+      upcomingContainer.innerHTML += nextBatch.map(r => createRaceCard(r)).join('');
+      shownCount += nextBatch.length;
+
+      // Hide button if no more races to show
+      if (shownCount >= upcoming.length) {
+        showMoreBtn.style.display = 'none';
+      }
+    };
+
+    // Initial render
+    if (upcoming.length > 0) {
+      renderNextBatch();
       showMoreBtn.style.display = 'block';
-      showMoreBtn.onclick = () => {
-        upcomingContainer.innerHTML += remaining.map(r => createRaceCard(r)).join('');
-        showMoreBtn.style.display = 'none'; // Hide the button after showing more
-      };
+      showMoreBtn.onclick = renderNextBatch;
     } else {
-      showMoreBtn.style.display = 'none'; // No races to show
+      showMoreBtn.style.display = 'none';
     }
   })
   .catch(err => {
