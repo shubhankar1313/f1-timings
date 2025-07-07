@@ -1,32 +1,10 @@
+// Toggle theme logic
+
 function toggleTheme() {
     document.body.classList.toggle('light-theme');
 }
 
-let selectedTimezone = 'Asia/Kolkata'; // Default to IST
-
-function convertToTimezone(utcTime, tz = selectedTimezone) {
-    const date = new Date(utcTime);
-    const options = { timeZone: tz };
-
-    const day = date.toLocaleString('en-IN', { ...options, day: 'numeric' });
-    const month = date.toLocaleString('en-IN', { ...options, month: 'long' });
-    const year = date.toLocaleString('en-IN', { ...options, year: 'numeric' });
-    const time = date.toLocaleString('en-IN', { ...options, hour: 'numeric', minute: '2-digit', hour12: true });
-
-    const dayWithSuffix = addOrdinalSuffix(parseInt(day));
-    return `${dayWithSuffix} ${month}, ${year} ${time}`;
-}
-
-
-function addOrdinalSuffix(day) {
-    if (day > 3 && day < 21) return day + 'th';
-    switch (day % 10) {
-    case 1: return day + 'st';
-    case 2: return day + 'nd';
-    case 3: return day + 'rd';
-    default: return day + 'th';
-    }
-}
+// Custom dropdown logic
 
 function initCustomTimezoneDropdown() {
   const dropdown = document.getElementById('timezone-dropdown');
@@ -76,6 +54,34 @@ window.onload = () => {
   initCustomTimezoneDropdown();
 };
 
+// Change timezone logic
+
+let selectedTimezone = 'Asia/Kolkata'; // Default to IST
+
+function convertToTimezone(utcTime, tz = selectedTimezone) {
+    const date = new Date(utcTime);
+    const options = { timeZone: tz };
+
+    const day = date.toLocaleString('en-IN', { ...options, day: 'numeric' });
+    const month = date.toLocaleString('en-IN', { ...options, month: 'long' });
+    const year = date.toLocaleString('en-IN', { ...options, year: 'numeric' });
+    const time = date.toLocaleString('en-IN', { ...options, hour: 'numeric', minute: '2-digit', hour12: true });
+
+    const dayWithSuffix = addOrdinalSuffix(parseInt(day));
+    return `${dayWithSuffix} ${month}, ${year} ${time}`;
+}
+
+
+function addOrdinalSuffix(day) {
+    if (day > 3 && day < 21) return day + 'th';
+    switch (day % 10) {
+    case 1: return day + 'st';
+    case 2: return day + 'nd';
+    case 3: return day + 'rd';
+    default: return day + 'th';
+    }
+}
+
 function createRaceCard(race, isCurrent = false) {
     let html = `<div class="race-card">
                 <h2>${race.raceName} (${race.Circuit.Location.locality}, ${race.Circuit.Location.country})</h2>
@@ -109,6 +115,8 @@ function updateTimezone() {
       .slice(0, shownCount)
       .map(r => createRaceCard(r)).join('');
 }
+
+// Fetching race details logic
 
 let currentRace = null;
 let upcoming = [];
