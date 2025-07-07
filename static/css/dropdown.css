@@ -90,11 +90,3 @@
 .custom-dropdown.open .dropdown-options {
   display: block;
 }
-
-.custom-dropdown .arrow {
-  transition: transform 0.3s ease;
-}
-
-.custom-dropdown.open .arrow {
-  transform: rotate(180deg);
-}
