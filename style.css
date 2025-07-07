@@ -15,12 +15,33 @@
   color: rgba(255,24,0,255);
 }
 
-.opening-line {
+.responsive-opening-line {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
+  text-align: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .responsive-opening-line {
+    flex-direction: column;  /*stack logo + title vertically */
+    gap: 0.5rem;
+  }
+
+  #page-title {
+     white-space: nowrap;
+  font-size: 8vw; /* Adjust this value to control scale */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  flex-grow: 1;
+  }
 }
 
 body {
