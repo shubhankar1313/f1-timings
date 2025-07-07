@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="images/f1_logo_48.ico" sizes="48x48">
   <link rel="shortcut icon" href="images/f1_logo_48.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dropdown.css">
   <title>F1 Grand Prix Schedule</title>
 </head>
 <body>
@@ -15,16 +16,36 @@
       <button class="toggle-button" onclick="toggleTheme()">Toggle Theme</button>
     </div>
 
-    <div class="timezone-select">
+    <div class="custom-dropdown" id="timezone-dropdown">
       <label for="timezone">Timezone</label>
-      <select id="timezone" onchange="updateTimezone()">
-        <option value="Asia/Kolkata">IST (India)</option>
-        <option value="UTC">UTC</option>
-        <option value="America/New_York">EST (New York)</option>
-        <option value="America/Los_Angeles">PST (Los Angeles)</option>
-        <option value="Europe/London">BST (London)</option>
-      </select>
+        <div class="selected" tabindex="0">
+          <span class="label">IST (India)</span>
+          <img src="https://flagcdn.com/24x18/in.png" alt="">
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" 
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+
+      <ul class="dropdown-options">
+        <li data-value="Asia/Kolkata" data-flag="in">IST (India) <img src="https://flagcdn.com/24x18/in.png" alt="🇮🇳"></li>
+        <li data-value="America/New_York" data-flag="us">EST (New York) <img src="https://flagcdn.com/24x18/us.png" alt="🇺🇸"></li>
+        <li data-value="America/Los_Angeles" data-flag="us">PST (Los Angeles) <img src="https://flagcdn.com/24x18/us.png" alt="🇺🇸"></li>
+        <li data-value="Europe/London" data-flag="gb">BST (London) <img src="https://flagcdn.com/24x18/gb.png" alt="🇬🇧"></li>
+        <li data-value="UTC" data-flag="un">UTC <img src="https://flagcdn.com/24x18/un.png" alt="🌍"></li>
+      </ul>
     </div>
+
+    <select id="timezone" style="display: none;">
+      <option value="Asia/Kolkata">IST (India)</option>
+      <option value="America/New_York">EST (New York)</option>
+      <option value="America/Los_Angeles">PST (Los Angeles)</option>
+      <option value="Europe/London">BST (London)</option>
+      <option value="UTC">UTC</option>
+    </select>
   </div>
 
   <br>
