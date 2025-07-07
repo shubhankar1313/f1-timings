@@ -12,7 +12,7 @@
 }
 
 #page-title, #race {
-  color: rgba(255,24,0,255);
+  color: rgba(255,24,0,1);
 }
 
 .responsive-opening-line {
@@ -27,7 +27,7 @@
   height: 50px;
 }
 
-/* Mobile view adjustments */
+/* Mobile view */
 @media (max-width: 768px) {
   .responsive-opening-line {
     flex-direction: column;  /*stack logo + title vertically */
@@ -35,12 +35,13 @@
   }
 
   #page-title {
-     white-space: nowrap;
-  font-size: 8vw; /* Adjust this value to control scale */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0;
-  flex-grow: 1;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    white-space: nowrap;
+    font-size: 8vw; /* For adjusting scale */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    flex-grow: 1;
   }
 }
 
@@ -97,7 +98,7 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 2rem; /* space between button and selector */
-  flex-wrap: wrap; /* responsive on smaller screens */
+  flex-wrap: wrap; /* responsive on smaller screen */
   margin: 1rem 0;
 }
 
