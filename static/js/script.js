@@ -128,8 +128,6 @@ fetch('https://api.jolpi.ca/ergast/f1/current.json')
   .then(data => {
     const races = data.MRData.RaceTable.Races;
     const now = new Date();
-    // let currentRace = null;
-    // const upcoming = [];
 
     for (let race of races) {
       const raceDate = new Date(race.date + 'T' + race.time);
@@ -148,8 +146,6 @@ fetch('https://api.jolpi.ca/ergast/f1/current.json')
     // Progressive display setup
     const upcomingContainer = document.getElementById('upcoming-races');
     const showMoreBtn = document.getElementById('show-more-btn');
-    // let shownCount = 0;
-    // const batchSize = 4;
 
     const renderNextBatch = () => {
       const nextBatch = upcoming.slice(shownCount, shownCount + batchSize);
