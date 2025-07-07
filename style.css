@@ -35,7 +35,6 @@
   }
 
   #page-title {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
     white-space: nowrap;
     font-size: 8vw; /* For adjusting scale */
     overflow: hidden;
