@@ -96,6 +96,9 @@ function createRaceCard(race, isCurrent = false) {
     if (race.ThirdPractice) {
         html += `<p class="session">FP3: ${convertToTimezone(race.ThirdPractice.date + 'T' + race.ThirdPractice.time)}</p>`;
     }
+    if (race.SprintQualifying) {
+        html += `<p class="session">Sprint Qualifying: ${convertToTimezone(race.SprintQualifying.date + 'T' + race.SprintQualifying.time)}</p>`;
+    }
     if (race.Sprint) {
         html += `<p class="session"><strong>Sprint: ${convertToTimezone(race.Sprint.date + 'T' + race.Sprint.time)}</strong></p>`;
     }
