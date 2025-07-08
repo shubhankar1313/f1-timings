@@ -174,3 +174,20 @@ fetch('https://api.jolpi.ca/ergast/f1/current.json')
     document.getElementById('current-race').innerHTML = '<p>Error loading schedule.</p>';
     console.error(err);
   });
+
+// Loading the footer
+
+function loadFooter() {
+  fetch('static/components/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Failed to load footer:", error);
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadFooter();
+});
