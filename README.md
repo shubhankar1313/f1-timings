@@ -1,4 +1,4 @@
-## F1 Timings – Grand Prix Session Schedule in IST
+## F1 Timings – Grand Prix Weekend Schedule in IST
 
 F1 Timings is a lightweight, single-page web application designed to display the full schedule of Formula 1 Grand Prix weekends — including Free Practice sessions, Qualifying, Sprint, and Race — automatically converted to Indian Standard Time (IST).
 
