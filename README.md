@@ -13,4 +13,3 @@ This project was built to solve a simple but frustrating problem: Formula 1 sess
 - **Responsive Design:** Optimized for both desktop and mobile views.
 - **Theme Toggle:** Switch between light and dark mode to suit your style.
 - **Modular Components:** Cleanly separated footer, dropdowns, and styles using component-based HTML.
-
