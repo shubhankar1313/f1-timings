@@ -11,6 +11,20 @@
     --accent-color: #d32f2f;
 }
 
+@font-face {
+  font-family: "F1 Regular";
+  src: url("../fonts/f1_reg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F1 Torque";
+  src: url("../fonts/f1_bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 #page-title, #race {
   color: rgba(255,24,0,1);
 }
@@ -48,7 +62,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: 'Montserrat', 'sans-serif';
+  font-family: 'F1 Regular', 'sans-serif';
 }
 
 .race-card {
@@ -81,12 +95,12 @@ button:hover, select:hover {
   opacity: 0.9;
 }
 
-.toggle-button, #show-more-btn {
-  font-family: 'Montserrat', sans-serif;
+.toggle-button, #show-more-btn, .custom-dropdown label, .dropdown-options li, .label {
+  font-family: 'F1 Regular', sans-serif;
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'F1 Torque', sans-serif;
   font-weight: 700;
   font-size: 40px;
   margin: 0;

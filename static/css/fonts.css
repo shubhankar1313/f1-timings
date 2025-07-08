@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "F1 Regular";
+  src: url("../fonts/f1_reg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F1 Torque";
+  src: url("../fonts/f1_bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
