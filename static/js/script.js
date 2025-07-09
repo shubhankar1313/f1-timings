@@ -1,7 +1,16 @@
 // Toggle theme logic
 
 function toggleTheme() {
-    document.body.classList.toggle('light-theme');
+  const html = document.documentElement;
+  const currentIsLight = html.classList.contains('light-theme');
+
+  if (currentIsLight) {
+    html.classList.remove('light-theme');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    html.classList.add('light-theme');
+    localStorage.setItem('theme', 'light');
+  }
 }
 
 // Custom dropdown logic
@@ -203,5 +212,11 @@ function updateDynamicFooterLink() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  // Apply stored theme
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-theme');
+  }
+
   loadFooter();
 });
