@@ -1,0 +1,32 @@
+.changelog-section {
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.changelog-group {
+  margin-bottom: 3rem;
+}
+
+.changelog-date {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.changelog-group ul {
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+.changelog-group li {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.show-more-wrapper {
+  text-align: left;
+  margin-top: 2rem;
+  margin-bottom: -2.2rem;
+}
