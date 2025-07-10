@@ -30,3 +30,22 @@
   margin-top: 2rem;
   margin-bottom: -2.2rem;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.changelog-section {
+  flex: 1; /* Allows the section to grow and push footer down */
+}
+
+#footer-placeholder {
+  flex-shrink: 0;
+}
