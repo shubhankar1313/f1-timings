@@ -1,0 +1,35 @@
+[
+  {
+    "date": "July 9, 2025",
+    "entries": [
+        "Added a dedicated changelog page"
+    ]
+  },
+  {
+    "date": "July 8, 2025",
+    "entries": [
+      "Added Sprint Qualifying timings",
+      "Introduced a footer section"
+    ]
+  },
+  {
+    "date": "July 7, 2025",
+    "entries": [
+      "Implemented responsive design for mobile devices",
+      "Replaced the default timezone selector with a custom dropdown"
+    ]
+  },
+  {
+    "date": "July 5, 2025",
+    "entries": [
+      "Updated the primary color theme",
+      "Added the option to change timezones"
+    ]
+  },
+  {
+    "date": "July 4, 2025",
+    "entries": [
+        "Introduced theme toggle functionality"
+    ]
+  }
+]
