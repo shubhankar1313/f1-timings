@@ -4,8 +4,6 @@ F1 Timings is a lightweight, single-page web application designed to display the
 
 This project was built to solve a simple but frustrating problem: Formula 1 session timings are usually published in UTC or local track time, making it inconvenient for Indian fans to track events in their own timezone. This app makes it effortless. It also offers options for other timezones as well.
 
----
-
 ### Features
 
 - **IST Conversion:** Automatically converts all session times from UTC to IST.
