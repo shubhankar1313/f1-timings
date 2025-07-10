@@ -12,44 +12,42 @@
   <title>Changelog - F1 GP Schedule</title>
 </head>
 <body>
-  <div class="background-overlay"></div>
+  <div class="page-container">
+    <div class="background-overlay"></div>
 
-  <div class="top-controls">
-    <div class="theme-toggle">
-      <button class="toggle-button" onclick="toggleTheme()">Toggle Theme</button>
+    <div class="top-controls">
+      <div class="theme-toggle">
+        <button class="toggle-button" onclick="toggleTheme()">Toggle Theme</button>
+      </div>
     </div>
-  </div>
 
-  <br>
+    <br>
 
-  <div class="responsive-opening-line">
-    <!-- <img src="static/images/f1_logo.png" alt="F1 Logo" class="logo"> -->
-    <h1 id="page-title">Changelog</h1>
-  </div>
+    <div class="responsive-opening-line">
+      <!-- <img src="static/images/f1_logo.png" alt="F1 Logo" class="logo"> -->
+      <h1 id="page-title">Changelog</h1>
+    </div>
 
-  <br>
+    <br>
 
-  <section class="changelog-section">
+    <section class="changelog-section">
 
-    <div class="changelog-updates" id="changelog-updates">
-      <!-- First 2 dates (visible by default) -->
-      <div class="changelog-group">
-        <h3 class="changelog-date">July 9, 2025</h3>
-        <ul>
-          <li>Added a dedicated changelog page</li>
-        </ul>
-      </div>
+      <div class="changelog-updates" id="changelog-updates">
+        <!-- First 2 dates (visible by default) -->
+        <div class="changelog-group">
+          <h3 class="changelog-date">July 9, 2025</h3>
+          <ul>
+            <li>Added a dedicated changelog page</li>
+          </ul>
+        </div>
 
-      <div class="changelog-group">
-        <h3 class="changelog-date">July 8, 2025</h3>
-        <ul>
-          <li>Added Sprint Qualifying timings</li>
-          <li>Introduced a footer section</li>
-        </ul>
-      </div>
-
-      <!-- Hidden initially -->
-      <div id="changelog-hidden" style="display: none;">
+        <div class="changelog-group">
+          <h3 class="changelog-date">July 8, 2025</h3>
+          <ul>
+            <li>Added Sprint Qualifying timings</li>
+            <li>Introduced a footer section</li>
+          </ul>
+        </div>
 
         <div class="changelog-group">
           <h3 class="changelog-date">July 7, 2025</h3>
@@ -59,30 +57,34 @@
           </ul>
         </div>
 
-        <div class="changelog-group">
-          <h3 class="changelog-date">July 5, 2025</h3>
-          <ul>
-            <li>Updated the primary color theme</li>
-            <li>Added the option to change timezones</li>
-          </ul>
-        </div>
+        <!-- Hidden initially -->
+        <div id="changelog-hidden" style="display: none;">
 
-        <div class="changelog-group">
-          <h3 class="changelog-date">July 4, 2025</h3>
-          <ul>
-            <li>Introduced theme toggle functionality</li>
-          </ul>
+          <div class="changelog-group">
+            <h3 class="changelog-date">July 5, 2025</h3>
+            <ul>
+              <li>Updated the primary color theme</li>
+              <li>Added the option to change timezones</li>
+            </ul>
+          </div>
+
+          <div class="changelog-group">
+            <h3 class="changelog-date">July 4, 2025</h3>
+            <ul>
+              <li>Introduced theme toggle functionality</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="show-more-wrapper">
-      <button id="show-more-btn" class="toggle-button">Show More</button>
-    </div>
-  </section>
+      <div class="show-more-wrapper">
+        <button id="show-more-btn" class="toggle-button">Show More</button>
+      </div>
+    </section>
 
-  <div id="footer-placeholder"></div> <!-- Loads footer from components -->
+    <div id="footer-placeholder"></div> <!-- Loads footer from components -->
 
-  <script src="static/js/script.js"></script>
+    <script src="static/js/script.js"></script>
+  </div>
 </body>
 </html>
